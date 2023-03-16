@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zomlib", "Common\Zomlib.csproj", "{E197626E-80F1-4A97-857C-4ECE019B1099}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commands", "Commands\Commands.csproj", "{85195886-0E24-42FF-ACCE-C4F14B2903CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E197626E-80F1-4A97-857C-4ECE019B1099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E197626E-80F1-4A97-857C-4ECE019B1099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E197626E-80F1-4A97-857C-4ECE019B1099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E197626E-80F1-4A97-857C-4ECE019B1099}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85195886-0E24-42FF-ACCE-C4F14B2903CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85195886-0E24-42FF-ACCE-C4F14B2903CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85195886-0E24-42FF-ACCE-C4F14B2903CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85195886-0E24-42FF-ACCE-C4F14B2903CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
