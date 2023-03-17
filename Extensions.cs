@@ -5,6 +5,10 @@ namespace Zomlib;
 
 public static class Extensions
 {
+    public static async ValueTask<T> ThrowIfNull<T>([NotNull] this ValueTask<T?> task, string? message = null, [CallerArgumentExpression(nameof(task))] string? expression = null) =>
+        (await task).ThrowIfNull(message, expression);
+    public static async Task<T> ThrowIfNull<T>([NotNull] this Task<T?> task, string? message = null, [CallerArgumentExpression(nameof(task))] string? expression = null) =>
+        (await task).ThrowIfNull(message, expression);
     public static T ThrowIfNull<T>([NotNull] this T? value, string? message = null, [CallerArgumentExpression(nameof(value))] string? expression = null)
     {
         if (value is null)
