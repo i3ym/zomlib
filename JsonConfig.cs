@@ -11,7 +11,14 @@ public class JsonConfig
     protected readonly JsonConfig? Parent;
 
     public static JsonConfig Load(string path) => new(path, (JsonObject) JsonNode.Parse(File.ReadAllText(path)).ThrowIfNull());
-    public static async ValueTask<JsonConfig> LoadAsync(string path) => new(path, (JsonObject) JsonNode.Parse(await File.ReadAllTextAsync(path)).ThrowIfNull());
+    public static JsonConfig LoadOrCreate(string path)
+    {
+        if (!File.Exists(path))
+            return new JsonConfig(path, new JsonObject());
+
+        return Load(path);
+    }
+
     public JsonConfig(string filepath, JsonNode jobject, JsonConfig? parent = null)
     {
         FilePath = filepath;
@@ -34,6 +41,19 @@ public class JsonConfig
             return (T) (object) JObject[path]!;
 
         return JObject[path].Deserialize<T>()!;
+    }
+    public bool TryGet<T>(string path, [NotNullWhen(true)] out T? value)
+    {
+        try
+        {
+            value = Get<T>(path)!;
+            return true;
+        }
+        catch
+        {
+            value = default;
+            return false;
+        }
     }
 
     [return: NotNullIfNotNull(nameof(defaultval))]
