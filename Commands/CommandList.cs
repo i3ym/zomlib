@@ -12,7 +12,7 @@ public class CommandList : IEnumerable<Command>
 
     public OperationResult<string?> TryExecute(string text, MessageInfo info, out Command cmd)
     {
-        if (!Get(text.ToLowerInvariant(), out cmd, out string[]? parameters)) return OperationResult.Err();
+        if (!Get(text, out cmd, out string[]? parameters)) return OperationResult.Err();
 
         var exec = cmd.Parameters.Execute(info, parameters);
         return EStringFromCommandResult(exec, cmd);
