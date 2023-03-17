@@ -5,7 +5,7 @@ namespace Zomlib;
 
 public static class Extensions
 {
-    public static T ThrowIfNull<T>([NotNull] this T? value, string? message = null, [CallerArgumentExpression(nameof(value))] string? expression = null) where T : class
+    public static T ThrowIfNull<T>([NotNull] this T? value, string? message = null, [CallerArgumentExpression(nameof(value))] string? expression = null)
     {
         if (value is null)
             throw new NullReferenceException(message ?? $"{expression ?? "Value"} is null");
