@@ -1,3 +1,4 @@
+using NLog;
 using NLog.Targets;
 
 namespace Zomlib;
@@ -9,7 +10,6 @@ public static class DefaultLogging
         const string logLayout = "${date:format=HH\\:mm\\:ss:universalTime=true} [${level:uppercase=true} @ ${logger:shortName=true}] ${message:withException=true:exceptionSeparator=\n\n}";
 
         LogManager.AutoShutdown = true;
-        LogManager.GlobalThreshold = LogLevel.Trace;
         LogManager.Setup()
             .SetupLogFactory(config => config.SetTimeSourcAccurateUtc())
             .LoadConfiguration(setup => setup.ForLogger()

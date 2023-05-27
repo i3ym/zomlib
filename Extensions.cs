@@ -23,12 +23,12 @@ public static class Extensions
         return t;
     }
 
-    public static void Consume(this Task task) => task.ContinueWith(t =>
+    public static void Consume(this Task task)
     {
-        if (t.Exception is not null)
+        task.ContinueWith(t =>
         {
-            LogManager.GetCurrentClassLogger().Error(t.Exception.Message);
-            throw t.Exception;
-        }
-    }, TaskContinuationOptions.OnlyOnFaulted | TaskContinuationOptions.ExecuteSynchronously);
+            if (t.Exception is not null)
+                throw t.Exception;
+        }, TaskContinuationOptions.OnlyOnFaulted | TaskContinuationOptions.ExecuteSynchronously);
+    }
 }

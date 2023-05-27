@@ -134,7 +134,7 @@ public class NullableCommandParameter<T> : CommandParameter<T?> where T : struct
     public override OperationResult<T?> Conversion(MessageInfo info, string[] parameters, ref int index)
     {
         var conversion = CommandParameter.Conversion(info, parameters, ref index);
-        return new OperationResult<T?>(conversion.EString, new T?(conversion.Value));
+        return new OperationResult<T?>(conversion.BaseResult, new T?(conversion.Value));
     }
 }
 public class EitherCommandParameter<T1, T2> : CommandParameter<Either<T1, T2>>
